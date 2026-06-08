@@ -1,0 +1,29 @@
+{
+  "name": "qianwen-cloud-ui",
+  "version": "1.0.0",
+  "description": "Qianwen Cloud UI design skill for Codex.",
+  "author": {
+    "name": "hantao"
+  },
+  "skills": "./skills/",
+  "license": "MIT",
+  "keywords": [
+    "qianwen",
+    "console",
+    "admin-ui",
+    "design-system"
+  ],
+  "interface": {
+    "displayName": "Qianwen Cloud UI",
+    "shortDescription": "Qianwen Cloud console and docs UI design rules.",
+    "longDescription": "Provides a Codex skill for designing Qianwen Cloud-style console, analytics, billing, API key, settings, drawer, dialog, table, chart, and documentation pages.",
+    "developerName": "hantao",
+    "category": "Design",
+    "capabilities": [
+      "Design",
+      "Write"
+    ],
+    "defaultPrompt": "Use $qianwen-cloud-ui to design a Qianwen Cloud-style console page.",
+    "brandColor": "#5B58FF"
+  }
+}
