@@ -1,0 +1,20 @@
+{
+  "name": "qianwen-cloud-ui",
+  "interface": {
+    "displayName": "Qianwen Cloud UI"
+  },
+  "plugins": [
+    {
+      "name": "qianwen-cloud-ui",
+      "source": {
+        "source": "local",
+        "path": "./plugins/qianwen-cloud-ui"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    }
+  ]
+}
