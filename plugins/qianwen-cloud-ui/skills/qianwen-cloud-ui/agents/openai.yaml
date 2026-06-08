@@ -1,0 +1,8 @@
+interface:
+  display_name: "qianwen-cloud-ui"
+  short_description: "深度复刻千问云控制台、文档站、数据看板、表格、抽屉和弹窗视觉规范"
+  brand_color: "#5B58FF"
+  default_prompt: "Use $qianwen-cloud-ui to design a Qianwen Cloud-style console or docs page with data-rich cards, compact tables, overlays, and restrained charts."
+
+policy:
+  allow_implicit_invocation: true
