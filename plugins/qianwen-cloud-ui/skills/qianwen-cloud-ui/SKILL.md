@@ -1,6 +1,6 @@
 ---
 name: qianwen-cloud-ui
-description: "Use when designing or implementing Qianwen Cloud / 千问云 / 千问工作台 2.0 style console, admin, analytics, billing, API key, settings, alert, drawer, dialog, popover, table, chart, or docs pages. Applies the observed Qianwen Cloud console and documentation visual system: pale gray workspaces, data-rich white cards, compact tables, capsule filters, black CTAs, purple states, restrained charts, blurred overlays, 420px drawers, and documentation reading layouts."
+description: "Use when designing or implementing Qianwen Cloud / 千问云 / 千问工作台 2.0 style console, admin, analytics, billing, API key, settings, alert, drawer, dialog, popover, table, status tag, sidebar icon, tab switch, chart, or docs pages. Applies the observed Qianwen Cloud console and documentation visual system: pale gray workspaces, data-rich white cards, compact tables, capsule filters, compact status tags, line sidebar icons, black CTAs, purple states, restrained charts, blurred overlays, 420px drawers, and documentation reading layouts."
 ---
 
 # qianwen-cloud-ui
@@ -47,6 +47,11 @@ Map to local tokens or CSS variables. If the project uses Tailwind, use arbitrar
   --qw-warning: #ff7931;
   --qw-blue: #277fe4;
   --qw-purple-tint: #653aff;
+  --qw-status-success-bg: #ecfaed;
+  --qw-status-warning-bg: #fff5eb;
+  --qw-status-danger-bg: #fff2f0;
+  --qw-status-info-bg: #edf4fd;
+  --qw-status-neutral-bg: #f2f4f8;
   --qw-shadow-light: 0 8px 24px rgba(83, 91, 107, 0.06);
   --qw-shadow-normal: 0 16px 40px rgba(83, 91, 107, 0.10);
 }
@@ -74,10 +79,13 @@ Typography:
 
 - Body/workspace: `#f9fafd`, no full-page outer card.
 - Sidebar: 272px wide, full height, transparent on the workspace. Top logo area aligns to a 84px topbar.
-- Sidebar item: 224px wide, 36px high, x padding about 40px for icon rows, 14px text, 10px icon/text gap.
-- Selected sidebar item: capsule `#e6e9ef`, radius 999px, font-weight 500.
-- Nested sidebar group: indented child links, 36px high, thin vertical guide line at the left of child items.
-- Bottom workspace switcher: pinned to sidebar bottom; opened menu is about 160px wide, white, 24px radius, shadow normal, current row with checkmark and a management link.
+- Sidebar scroll area begins below the topbar at y = 84px, has `mx-3`/12px outer gutter, inner nav width 224px, and 4px vertical item gap.
+- Top-level sidebar item: 224px wide, 36px high, radius 12px, 14px / 20px text, weight 400, letter spacing 0.4px, text `#0b0c0f`, `10px 10px 10px 40px` padding, 10px icon/text gap.
+- Selected child sidebar item: 173px wide, 36px high, capsule `#e6e9ef`, radius 999px, font-weight 500, text/icon `#0b0c0f`.
+- Nested sidebar group: x about 45px, width 194px, `4px 10px 0 20px` margin, `2px 10px` padding, 4px row gap, thin left border `#e6e9ef`; nested links are 173px x 36px with 8px radius unless selected.
+- Collapsed-sidebar affordance: bottom-right 36px round icon button, transparent background, 20px line icon, neutral text/icon color.
+- Bottom workspace switcher: pinned to sidebar bottom, trigger 188px x 36px, transparent capsule, `8px 10px` padding, 6px gap. Avatar tile is 24px square, 8px radius, dark `#1d2129`, white 16px/600 initial; label is 14px/500 truncated to about 112px.
+- Workspace menu: 160px wide, white, 24px radius, 12px padding, 8px gap, shadow normal, z-index about 1150. Current workspace row is 136px x 40px, capsule `#f2f4f8`, 14px/500; management link row is 136px x 40px, purple `#5b58ff`, 18px icon, separated by a `#e6e9ef` top rule.
 - Topbar: 84px high, transparent, right aligned global links, 14px text, avatar as a round gradient button.
 - Main: starts at x = 272px and y = 84px, scrolls independently. Let the first page title start at the main edge, then give cards 28px inner padding.
 
@@ -94,10 +102,20 @@ Typography:
 
 ### Tabs And Segmented Controls
 
-- Tablist container: capsule, white or transparent, 36-40px high.
-- Trigger: 32px high, 13px text, horizontal padding 24px, radius 999px.
-- Selected: `#f2f4f8`, weight 500.
+- Route-level tablist container: capsule, white, 40px high, `0 4px` padding, width fits content. Do not use underlines or colored bars for console page tabs.
+- Route-level tab trigger: 32px high, 13px / 20px text, letter spacing 0.4px, `4px 24px` padding, radius 999px, transparent border, neutral `#111317`; selected trigger uses `#f2f4f8` background and font-weight 500.
+- Panel/detail segmented tablist: capsule `#f2f4f8`, 40px high, `0 4px` padding. Selected trigger is white, unselected trigger is transparent; same 32px trigger height and 13px text.
 - Analytics table sub-tabs may sit inside chart panels as 32px pills with small info icons.
+
+### Sidebar And Utility Icons
+
+- Use the product's existing icon component set. If a project has no icon library, use lucide icons with the same geometry.
+- Sidebar icons are monochrome line icons, 20px square, `stroke: currentColor`, no fill, neutral `#0b0c0f`, flex-shrink allowed, aligned at x padding 40px. Do not use colored icon badges in the sidebar.
+- Expand/collapse chevrons in grouped menu items are 16px square line icons, right aligned near the item edge.
+- Popover and workspace utility icons are 18px square; the management link icon uses purple `#5b58ff`, while current-item/check icons stay neutral.
+- Collapse-sidebar control uses a 20px line icon inside a 36px round transparent button.
+- Reasonable lucide mapping: `Home`, `Sparkles` or `Bot` for model experience, `BarChart3` for analytics, `CreditCard` or `WalletCards` for billing, `Factory` or `Boxes` for model production, `KeyRound` for API keys, `Settings` for settings, `User`, `BriefcaseBusiness`, `Bell`, `ChevronDown`, `PanelLeftClose`, `Check`, and `ExternalLink`.
+- Small promotional nav badges such as "Hot" should stay tiny: about 20px high, 12px / 16px text, 999px radius, compact horizontal padding. They should not compete with selected navigation state.
 
 ### Filters And Inputs
 
@@ -117,6 +135,20 @@ Typography:
 - Link/text action: purple `#5b58ff`, no border, 13px/20px in tables.
 - Danger text: red `#f33939`; avoid red filled buttons unless destructive emphasis is explicitly requested.
 - Icon-only: 28-36px round buttons with neutral icon color; use lucide or the existing icon set.
+
+### Status Tags And Badges
+
+- Table status tags should match the request-log status style: `inline-flex`, 22px high, `2px 10px` padding, radius 999px, 12px / 16px text, font-weight 400, letter spacing 0.4px, no shadow, and a transparent 1px border.
+- Do not use large, bold, saturated, or square status labels. Avoid default framework tags such as solid Ant Design green/red pills unless they are restyled to this scale.
+- HTTP 2xx / success: background `#ecfaed`, text `#0da740`, label can be the numeric code such as `200`.
+- HTTP 0 / interrupted or unknown-but-not-error: background `#f2f4f8`, text `#535b6b`.
+- HTTP 3xx / informational: background `#edf4fd`, text `#277fe4`.
+- HTTP 4xx / user-caused exception: background `#fff5eb`, text `#ff7931`.
+- HTTP 5xx / service unavailable: background `#fff2f0`, text `#f33939`.
+- Status filter trigger: 200px wide, 36px high, radius 999px, transparent background, `1px #e6e9ef`, 13px / 20px text, 0.4px letter spacing, left padding 6px and right padding 12px. Expanded/focused border becomes `#5b58ff`.
+- Status filter popover: 300px wide, white, 24px radius, shadow normal, z-index about 1150. Inner scroll area uses 12px padding and up to 280px height.
+- Status filter option row: 276px x 36px, radius 999px, 14px / 20px text, `0 12px` padding, 16px gap, hover `#f9fafd`, selected `#f2f4f8`.
+- Multi-select checkbox inside option rows: 16px square, 6px radius, inset `1px #d1d7e2`; selected state should use primary purple, not a separate brand color.
 
 ### Tables
 
@@ -191,7 +223,9 @@ Typography:
 - Same heading/tabs/filter language as usage.
 - Toolbar should support request ID/model/status/date filters and search.
 - Table columns should be compact and scannable: time, model, request ID, status, latency, tokens/cost, action.
-- Use status pills with supporting tints. Avoid large colored rows.
+- Status column should use compact HTTP-code tags: 22px-high 12px text, numeric code label, success `#ecfaed/#0da740`, 4xx `#fff5eb/#ff7931`, 5xx `#fff2f0/#f33939`, neutral/interrupted `#f2f4f8/#535b6b`.
+- The status filter should read as a 36px capsule control and open a 300px white rounded popover; options are text rows with small checkboxes, not colored tags.
+- Avoid large colored rows, oversized badges, bold labels, or high-saturation status colors in request-log tables.
 - Empty state should explain that logs appear after API requests, with a link-style docs action.
 
 ### Billing And Payments
@@ -271,7 +305,7 @@ Docs search overlay:
 - Primary surfaces are white 24px cards with 28px padding.
 - Filters, tabs, selects, dates, buttons, and search are capsule-shaped.
 - Data pages include real filled, loading, empty, selected, and expanded-row states.
-- Tables use 13px body, 12px header, 40px header rows, compact row actions, and masked sensitive values.
+- Tables use 13px body, 12px header, 40px header rows, compact row actions, masked sensitive values, and 22px-high 12px status tags.
 - Charts use light grid lines, pale purple/blue fills, and restrained deltas.
 - Primary action is black; hover/focus/links/selected states are purple; destructive text is red.
 - Dialogs/popovers use 24px radius, shadow normal, and blurred page backdrops.
