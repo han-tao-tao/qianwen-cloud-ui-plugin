@@ -16,7 +16,7 @@
   "interface": {
     "displayName": "Qianwen Cloud UI",
     "shortDescription": "Qianwen Cloud console and docs UI design rules.",
-    "longDescription": "Provides a Codex skill for designing Qianwen Cloud-style console, analytics, billing, API key, settings, drawer, dialog, table, chart, and documentation pages.",
+    "longDescription": "Provides a Codex skill for designing Qianwen Cloud-style console, analytics, billing, API key, settings, drawer, dialog, table, status tag, chart, and documentation pages.",
     "developerName": "hantao",
     "category": "Design",
     "capabilities": [
