@@ -1,0 +1,8 @@
+interface:
+  display_name: "Qianwen Cloud Mini Program UI"
+  short_description: "千问云微信小程序 UI 设计、组件、导航和交互规范"
+  brand_color: "#5B58FF"
+  default_prompt: "Use $qianwen-cloud-miniprogram-ui to design a Qianwen Cloud-style WeChat Mini Program screen."
+
+policy:
+  allow_implicit_invocation: true

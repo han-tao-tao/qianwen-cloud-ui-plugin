@@ -1,7 +1,7 @@
 {
   "name": "qianwen-cloud-ui",
-  "version": "1.0.0",
-  "description": "Qianwen Cloud UI design skill for Codex.",
+  "version": "1.1.0",
+  "description": "Qianwen Cloud desktop, mobile app, and WeChat Mini Program UI design skills for Codex.",
   "author": {
     "name": "hantao"
   },
@@ -10,20 +10,22 @@
   "keywords": [
     "qianwen",
     "console",
+    "mobile-ui",
+    "wechat-miniprogram",
     "admin-ui",
     "design-system"
   ],
   "interface": {
     "displayName": "Qianwen Cloud UI",
-    "shortDescription": "Qianwen Cloud console and docs UI design rules.",
-    "longDescription": "Provides a Codex skill for designing Qianwen Cloud-style console, analytics, billing, API key, settings, sidebar icon, tab switch, drawer, dialog, table, status tag, chart, and documentation pages.",
+    "shortDescription": "Qianwen Cloud console, mobile app, and mini program UI rules.",
+    "longDescription": "Provides Codex skills for designing Qianwen Cloud-style desktop console, documentation, mobile app, mobile web, PWA, and WeChat Mini Program interfaces, including analytics, billing, API key management, request logs, settings, alerts, compact tables, mobile list cards, custom navigation, tab bars, bottom sheets, WeUI-compatible flows, status tags, charts, and documentation/help surfaces.",
     "developerName": "hantao",
     "category": "Design",
     "capabilities": [
       "Design",
       "Write"
     ],
-    "defaultPrompt": "Use $qianwen-cloud-ui to design a Qianwen Cloud-style console page.",
+    "defaultPrompt": "Use $qianwen-cloud-ui, $qianwen-cloud-mobile-ui, or $qianwen-cloud-miniprogram-ui to design a Qianwen Cloud-style interface.",
     "brandColor": "#5B58FF"
   }
 }
